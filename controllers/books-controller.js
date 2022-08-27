@@ -28,9 +28,9 @@ books.get("/seed", async (req, res) => {
     }
 });
 
-//PUT /books.:id
+//PATCH /books.:id
 //update book by ID
-books.put("/:id", async (req, res) => {
+books.patch("/:id", async (req, res) => {
     try {
         const foundBook = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.status(200).json(foundBook);
